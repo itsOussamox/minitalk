@@ -6,7 +6,7 @@
 /*   By: obouadel <obouadel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:48:30 by obouadel          #+#    #+#             */
-/*   Updated: 2021/12/02 16:59:17 by obouadel         ###   ########.fr       */
+/*   Updated: 2021/12/27 16:11:11 by obouadel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_data	g_data;
 
 static void	receive(int sig)
 {
+
 	if (sig == SIGUSR1)
 		g_data.c |= 1 << g_data.pos;
 	g_data.pos++;
@@ -35,6 +36,7 @@ int	main(void)
 {
 	g_data.c = 0;
 	g_data.pos = 0;
+	g_data.pid = 0;
 	ft_putstr_fd("PID     : ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putchar_fd('\n', 1);
